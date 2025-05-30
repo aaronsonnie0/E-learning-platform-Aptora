@@ -1,14 +1,15 @@
 
 import { PromptTemplate } from "@langchain/core/prompts";
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import { GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { RunnableSequence } from "@langchain/core/runnables";
 import { StringOutputParser } from "@langchain/core/output_parsers";
 
-// Initialize the Google Generative AI model
+// Initialize the Google Generative AI model with optimized settings
 const getGoogleAI = () => {
   const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+  
+  console.log("API Key status:", API_KEY ? "Present" : "Missing");
+  console.log("API Key length:", API_KEY?.length || 0);
   
   if (!API_KEY) {
     throw new Error("VITE_GEMINI_API_KEY is not defined in environment variables");
@@ -16,11 +17,11 @@ const getGoogleAI = () => {
   
   return new ChatGoogleGenerativeAI({
     apiKey: API_KEY,
-    modelName: "gemini-1.5-pro",
-    maxOutputTokens: 2048,
-    temperature: 0.7,
-    topK: 40,
-    topP: 0.95,
+    modelName: "gemini-1.5-flash", // Using flash model for faster responses
+    maxOutputTokens: 1024, // Reduced for faster generation
+    temperature: 0.5, // Reduced for more consistent, faster responses
+    topK: 20, // Reduced for faster processing
+    topP: 0.8, // Slightly reduced
   });
 };
 
@@ -135,11 +136,21 @@ export const generateWithLangChain = async (
   userPrompt: string
 ): Promise<string> => {
   try {
+    console.log("Starting generation with feature:", feature);
+    console.log("User prompt length:", userPrompt.length);
+    
+    const startTime = Date.now();
     const chain = createGenerationChain(feature);
     const result = await chain.invoke({ userPrompt });
+    const endTime = Date.now();
+    
+    console.log("Generation completed in:", endTime - startTime, "ms");
+    console.log("Result length:", result.length);
+    
     return result;
   } catch (error) {
     console.error("Error in LangChain generation:", error);
+    console.error("Error details:", error instanceof Error ? error.message : error);
     throw error;
   }
 };
