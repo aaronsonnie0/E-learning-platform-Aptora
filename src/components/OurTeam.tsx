@@ -1,4 +1,3 @@
-
 import React from "react";
 import { TeamMember } from "./TeamMember";
 
@@ -12,20 +11,20 @@ export const OurTeam = () => {
   const teamMembers = [
     {
       name: "Aaron Sonnie",
-      role: "Founder & Lead Developer",
-      bio: "Passionate about creating innovative educational solutions. Leads the technical development and strategic direction of Aptora.",
+      role: "Founder & Backend Developer",
+      bio: "Passionate backend developer with expertise in building scalable, efficient, and secure systems.",
       photoUrl: "/lovable-uploads/7ac96ef4-2820-482a-ae2e-a05176205147.png",
       linkedin: "https://linkedin.com/in/aaronsonnie",
       github: "https://github.com/aaronsonnie",
       email: "aaron@aptora.com"
     },
     {
-      name: "Kari Vardhan",
-      role: "Co-Founder & Tester",
-      bio: "Ensures the highest quality user experience through rigorous testing methodologies and quality assurance practices.",
+      name: "Karivaradhan",
+      role: "Founder & TeamLead",
+      bio: "Passionate about creating innovative educational solutions. Leads the technical development and strategic direction of Aptora.",
       photoUrl: "/lovable-uploads/b94a9ece-7e3f-42eb-bc23-a5eb21a13b71.png",
-      linkedin: "https://linkedin.com/in/karivardhan",
-      github: "https://github.com/karivardhan",
+      linkedin: "https://linkedin.com/in/karivaradhan",
+      github: "https://github.com/karivaradhan",
       email: "kari@aptora.com"
     },
     {
@@ -39,7 +38,7 @@ export const OurTeam = () => {
     },
     {
       name: "Thrithwik",
-      role: "Co-Founder & Backend Developer",
+      role: "Co-Founder & Developer",
       bio: "Develops the robust infrastructure that powers Aptora's AI learning capabilities and data processing.",
       photoUrl: thrithwikPhoto,
       linkedin: "https://linkedin.com/in/thrithwik",
