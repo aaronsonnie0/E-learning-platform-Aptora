@@ -1,3 +1,4 @@
+
 import React from "react";
 import { TeamMember } from "./TeamMember";
 
@@ -29,7 +30,7 @@ export const OurTeam = () => {
     },
     {
       name: "Sona Daison",
-      role: "Co-Founder & Frontend Developer",
+      role: "Founder & Frontend Developer",
       bio: "Creates beautiful, intuitive interfaces that make learning engaging and accessible for all users.",
       photoUrl: "/lovable-uploads/0486d9ae-e6fa-4ba8-89e7-2a8e9e37b657.png",
       linkedin: "https://linkedin.com/in/sonadaison",
